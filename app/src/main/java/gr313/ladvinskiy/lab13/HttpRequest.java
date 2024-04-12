@@ -29,15 +29,13 @@ public class HttpRequest {
                 {
                     int n = inp.read(buf);
                     if(n <= 0) break;
-                    Log.e("ОЛО","2");
                     res += new String(buf,0,n);
                 }
                 con.disconnect();
-                Log.e("ОЛО","3");
                 final String res2 = res;
                 ctx.runOnUiThread(new Runnable() {public void run() {on_request_complete(res2);}});
             }
-            catch(Exception ex) {Log.e("ОШИБОЧКА",ex.toString());}
+            catch(Exception ex) {Log.e("error",ex.toString());}
         }
     }
 
